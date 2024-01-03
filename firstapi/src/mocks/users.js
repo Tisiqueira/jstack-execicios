@@ -5,11 +5,11 @@ module.exports =  [
     },
     {
         id: 2,
-        name:"Tiago"
+        name:"Joyce"
     },
     {
         id: 3,
-        name:"Tiago"
+        name:"Luiz"
     },
 
 ]
