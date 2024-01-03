@@ -6,5 +6,11 @@ module.exports = [
         method: 'GET',
         handler: UsersControllers.listUsers,
     },
+    {
+        endpoint: '/users/:id',
+        method: 'GET',
+        handler: UsersControllers.getUserById,
+    },
+    
     
 ]
