@@ -1,11 +1,12 @@
 const http = require('http');
 const { URL }  = require('url');
 
+const bodyParser = require('./helpers/bodyParser')
 const routes = require('./routes');
 
 
 const server = http.createServer((request, response) => {
-    const parseUrl = new URL(`http://localhost:300${request.url}`)
+    const parseUrl = new URL(`http://localhost:3001${request.url}`)
     
     console.log(`Request method: ${request.method} | Endpoint url: ${parseUrl.pathname}`)
 
@@ -31,8 +32,16 @@ const server = http.createServer((request, response) => {
         response.send = (statusCode, body) => {
             response.writeHead(statusCode,{'Content-type': 'application/json' } );
             response.end(JSON.stringify({ body }));
+        };
+
+        if(request.method === "POST"){
+            console.log('entrei')
+            bodyParser(request, () => route.handler(request, response));
+            console.log({ erro: bodyParser })
+        } else {
+
+            route.handler(request,response);
         }
-        route.handler(request,response);
 
     }else{
         response.writeHead(404, {'Content-type': 'text/html'});
