@@ -34,10 +34,9 @@ const server = http.createServer((request, response) => {
             response.end(JSON.stringify({ body }));
         };
 
-        if(request.method === "POST"){
-            console.log('entrei')
+        if(['POST', 'PUT', 'PATCH'].includes(request.method)){
             bodyParser(request, () => route.handler(request, response));
-            console.log({ erro: bodyParser })
+            
         } else {
 
             route.handler(request,response);

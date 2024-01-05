@@ -1,6 +1,6 @@
 function bodyParser(request, callback) {
     let body = '';
-    console.log('bodyParser1')
+    
 
     request.on('data', (chunk) => {
         body += chunk;
