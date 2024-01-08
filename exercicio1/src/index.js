@@ -1,12 +1,11 @@
 const http = require('http');
 
 const routes = require('./routes');
-const url = require('url');
+const { URL } = require('url');
 
 const server = http.createServer((request, response) => {
-    const parseUrl = url.parse(request.url,true);
+    const parseUrl = new URL(`http://localhost:3001${request.url}`);
 
-    console.log(parseUrl);
     
     console.log(`Request method: ${request.method} | Request endpoint: ${parseUrl.pathname}`);
 
@@ -16,7 +15,7 @@ const server = http.createServer((request, response) => {
     ));
     
     if(route){
-        request.query = parseUrl.query;
+        request.query = Object.fromEntries(parseUrl.searchParams)
         route.handler(request, response);
     }else{
         response.writeHead(404, {'Content-type': 'text/html'});
