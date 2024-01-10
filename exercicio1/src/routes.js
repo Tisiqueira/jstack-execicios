@@ -1,6 +1,7 @@
 const UserController = require('./controllers/UserControllers');
 const WorkflowsController = require('./controllers/WorkflowControllers');
 
+
 module.exports = [
     {
         endpoint: "/",
@@ -16,6 +17,16 @@ module.exports = [
         endpoint: "/workflows",
         method: "GET",
         handler: WorkflowsController.listAll
+    },
+    {
+        endpoint: "/users/:id",
+        method: "GET",
+        handler: UserController.getUserById
+    },
+    {
+        endpoint: "/workflows/:id",
+        method: "GET",
+        handler: WorkflowsController.getUserById
     },
    
 ]
