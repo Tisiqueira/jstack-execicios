@@ -38,6 +38,16 @@ module.exports = [
         method: "POST",
         handler: WorkflowsController.createWorkflows
     },
+    {
+        endpoint: "/users/:id",
+        method: "PUT",
+        handler: UserController.updateUser
+    },
+    {
+        endpoint: "/users/:id",
+        method: "DELETE",
+        handler: UserController.deleteUser
+    },
 
    
 ]
