@@ -21,6 +21,21 @@ module.exports = {
         
         response.send(200, workflow);
         
+    },
+
+    createWorkflows(request, response){
+        const { body } = request;
+
+        const lastWorkFlowId  = workflows[ workflows.length - 1].id;
+        const newWorkflow = {
+            id: lastWorkFlowId + 1,
+            ProcessName: body.ProcessName,
+            Owners: body.Owners,
+        }
+
+        workflows.push(newWorkflow);
+        
+        response.send(200, newWorkflow);
     }
     
 }

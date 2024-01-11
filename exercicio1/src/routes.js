@@ -33,6 +33,11 @@ module.exports = [
         method: "POST",
         handler: UserController.createUsers
     },
+    {
+        endpoint: "/workflows",
+        method: "POST",
+        handler: WorkflowsController.createWorkflows
+    },
 
    
 ]
