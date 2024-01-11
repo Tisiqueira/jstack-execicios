@@ -15,12 +15,12 @@ module.exports = {
         console.log(workflow)
 
         if(!workflow){
-            response.writeHead(400, { 'Content-type': 'text/html'});
-            response.end("Workflow not found!");
-        } else{
-            response.writeHead(200, { 'Contente-type': 'application/json'});
-            response.end( JSON.stringify(workflow));
-        }
+            return response.send(400, { 'Error': 'Workflow not Found!'});
+            
+        } 
+        
+        response.send(200, workflow);
+        
     }
     
 }
