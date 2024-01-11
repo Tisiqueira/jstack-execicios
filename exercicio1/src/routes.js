@@ -28,5 +28,11 @@ module.exports = [
         method: "GET",
         handler: WorkflowsController.getUserById
     },
+    {
+        endpoint: "/users",
+        method: "POST",
+        handler: UserController.createUsers
+    },
+
    
 ]
