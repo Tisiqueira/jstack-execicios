@@ -1,7 +1,7 @@
-# jstack-execicios
+# jstack-execicios NODE
 Aulas do curso da escola JStack
 
-## Temas das Aulas
+## Temas das Aulas Node Puro
 [x] Como funciona o node
 [x] Instalação do Node
 [x] HTTP E API's REST
